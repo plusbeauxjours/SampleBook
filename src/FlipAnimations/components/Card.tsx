@@ -6,7 +6,7 @@ import {
   Platform,
 } from "react-native";
 import Animated, {
-  interpolate,
+  interpolateNode,
   cond,
   concat,
   and,
@@ -33,7 +33,7 @@ const Image = styled.Image``;
 const FlipAnimationsCard: React.FC<IProps> = ({ front, back, x }) => {
   const { width } = Dimensions.get("window");
   const perspective = Platform.OS === "ios" ? 1000 : undefined;
-  const rotateYAsDeg = interpolate(x, {
+  const rotateYAsDeg = interpolateNode(x, {
     inputRange: [0, width],
     outputRange: [0, 180],
   });
@@ -60,7 +60,7 @@ const FlipAnimationsCard: React.FC<IProps> = ({ front, back, x }) => {
           transform: [{ perspective }, { rotateY: "180deg" }, { rotateY }],
         }}
       >
-        <Image source={front} style={{ ...StyleSheet.absoluteFillObject }} />
+        <Image source={front} />
       </Animated.View>
       <Animated.View
         style={{
@@ -70,7 +70,7 @@ const FlipAnimationsCard: React.FC<IProps> = ({ front, back, x }) => {
           transform: [{ perspective }, { rotateY }],
         }}
       >
-        <Image source={back} style={{ ...StyleSheet.absoluteFillObject }} />
+        <Image source={back} />
       </Animated.View>
     </View>
   );

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
 import { ImageSourcePropType, StyleSheet, Dimensions } from "react-native";
-import Animated from "react-native-reanimated";
+import Animated, { Value } from "react-native-reanimated";
 import { Asset } from "expo-asset";
 
-import FlipAnimationsCard from "./FlipAnimationsCard";
+import Card from "~/FlipAnimations/components/Card";
 
 interface IProps {}
 
@@ -15,17 +15,16 @@ const View = styled.View`
 `;
 
 const FlipAnimations: React.FC<IProps> = () => {
-  let x;
   const { width } = Dimensions.get("window");
-  x = new Animated.Value(0);
+  let x = new Value(0);
 
-  const [front, setFront] = useState<ImageSourcePropType>(null);
-  const [back, setBack] = useState<ImageSourcePropType>(null);
+  const [front, setFront] = useState<ImageSourcePropType>();
+  const [back, setBack] = useState<ImageSourcePropType>();
 
   useEffect(() => {
     const init = async () => {
-      const front = require("./front.png");
-      const back = require("./back.png");
+      const front = require("./assets/front.png");
+      const back = require("./assets/back.png");
       await Asset.loadAsync([front, back]);
       setFront(front);
       setBack(back);
@@ -35,7 +34,7 @@ const FlipAnimations: React.FC<IProps> = () => {
 
   return (
     <View>
-      <FlipAnimationsCard front={front} back={back} {...{ x }} />
+      <Card front={front} back={back} {...{ x }} />
       <Animated.ScrollView
         style={StyleSheet.absoluteFillObject}
         horizontal

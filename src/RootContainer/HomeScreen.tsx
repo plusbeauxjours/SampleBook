@@ -7,20 +7,24 @@ const View = styled.View`
   justify-content: center;
   align-items: center;
 `;
-const Touchable = styled.TouchableOpacity``;
+
+const Touchable = styled.TouchableOpacity`
+  margin: 10px 0;
+`;
 const Text = styled.Text``;
 
 export default () => {
   const navigation = useNavigation();
-
-  const onPress = () => {
-    navigation.navigate("FlipAnimations");
-  };
-
   return (
     <View>
-      <Touchable onPress={() => onPress()}>
+      <Touchable onPress={() => navigation.navigate("FlipAnimations")}>
         <Text>FlipAnimations</Text>
+      </Touchable>
+      <Touchable onPress={() => navigation.navigate("Example")}>
+        <Text>Example</Text>
+      </Touchable>
+      <Touchable onPress={() => navigation.navigate("JellyScroll")}>
+        <Text>JellyScroll</Text>
       </Touchable>
     </View>
   );

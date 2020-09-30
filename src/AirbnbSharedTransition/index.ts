@@ -1,2 +1,0 @@
-import AirbnbSharedTransition from "./AirbnbSharedTransition"
-export default AirbnbSharedTransition
