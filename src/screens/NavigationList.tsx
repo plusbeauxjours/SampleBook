@@ -3,15 +3,13 @@ import { FlatList } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import styled from "styled-components/native";
-
-import navigation from "../config/navigation";
-import { SPACING } from "../config/theme";
+import navigation from "~/config/navigation";
 
 const Text = styled.Text`
   font-size: 24px;
 `;
 const Touchable = styled.TouchableOpacity`
-  padding: SPACING;
+  padding: 12px;
 `;
 
 export default function NavigationList(props) {

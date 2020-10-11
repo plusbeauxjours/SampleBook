@@ -15,14 +15,14 @@ import {
   PlayfairDisplay_500Medium,
 } from "@expo-google-fonts/playfair-display";
 
-import Detail from "./Screens/Detail";
-
-import NavigationList from "./Screens/NavigationList";
-import List from "./src/screens/List";
+import NavigationList from "~/screens/NavigationList";
+import VacationDetail from "~/screens/Vacation/VacationDetail";
+import VacationList from "~/screens/Vacation/VacationList";
 
 LogBox.ignoreAllLogs(true);
 
 const Stack = createSharedElementStackNavigator();
+
 const options = {
   gestureEnabled: false,
   headerBackTitleVisible: false,
@@ -45,8 +45,8 @@ const options = {
   },
 };
 
-export default function App() {
-  let [fontsLoaded] = useFonts({
+export default () => {
+  const [fontsLoaded] = useFonts({
     Montserrat_400Regular,
     Montserrat_700Bold,
     SourceSansPro_700Bold,
@@ -65,20 +65,17 @@ export default function App() {
         screenOptions={{ cardStyle: { backgroundColor: "white" } }}
       >
         <Stack.Screen name="NavigationList" component={NavigationList} />
-        {navigation.map((item) => (
-          <Stack.Screen
-            key={item.name}
-            name={item.name}
-            component={item.component}
-          />
-        ))}
-        <Stack.Screen name="List" component={List} options={() => options} />
         <Stack.Screen
-          name="Detail"
-          component={Detail}
+          name="VacationList"
+          component={VacationList}
+          options={() => options}
+        />
+        <Stack.Screen
+          name="VacationDetail"
+          component={VacationDetail}
           options={() => options}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};

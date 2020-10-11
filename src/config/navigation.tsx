@@ -1,5 +1,7 @@
 // Navigation
 
-import List from "~/screens/List";
+import VacationList from "~/screens/Vacation/VacationList";
 
-export default [{ name: "List", label: "Vacation", component: List }];
+export default [
+  { name: "VacationList", label: "Vacation", component: VacationList },
+];
