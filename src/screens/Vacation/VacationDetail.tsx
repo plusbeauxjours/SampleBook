@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Dimensions, Animated } from "react-native";
-import data from "../../config/data/data";
+import data from "../../config/data/vacationData";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { SharedElement } from "react-navigation-shared-element";
 import { SIZE, SPACING } from "../../config/theme";

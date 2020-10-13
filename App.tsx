@@ -16,8 +16,10 @@ import {
 } from "@expo-google-fonts/playfair-display";
 
 import NavigationList from "~/screens/NavigationList";
-import VacationDetail from "~/screens/Vacation/VacationDetail";
 import VacationList from "~/screens/Vacation/VacationList";
+import VacationDetail from "~/screens/Vacation/VacationDetail";
+import TravelList from "~/screens/Travel/TravelList";
+import TravelDetail from "~/screens/Travel/TravelDetail";
 
 LogBox.ignoreAllLogs(true);
 
@@ -73,6 +75,16 @@ export default () => {
         <Stack.Screen
           name="VacationDetail"
           component={VacationDetail}
+          options={() => options}
+        />
+        <Stack.Screen
+          name="TravelList"
+          component={TravelList}
+          options={() => options}
+        />
+        <Stack.Screen
+          name="TravelDetail"
+          component={TravelDetail}
           options={() => options}
         />
       </Stack.Navigator>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StatusBar } from "react-native";
-import data from "../../config/data/data";
+import vacationData from "../../config/data/vacationData";
 import { FlatList } from "react-native-gesture-handler";
 import { SharedElement } from "react-navigation-shared-element";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -101,7 +101,7 @@ const cards = [
   },
 ];
 
-export default function List({ navigation }) {
+export default ({ navigation }) => {
   return (
     <SafeAreaView>
       <GoBack />
@@ -125,7 +125,7 @@ export default function List({ navigation }) {
         }}
       />
       <IconRow>
-        {data.map((item) => {
+        {vacationData.map((item) => {
           return (
             <IconTouchable
               key={item.id}
@@ -152,4 +152,4 @@ export default function List({ navigation }) {
       </BottomCardContainer>
     </SafeAreaView>
   );
-}
+};
