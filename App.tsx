@@ -20,6 +20,8 @@ import VacationList from "~/screens/Vacation/VacationList";
 import VacationDetail from "~/screens/Vacation/VacationDetail";
 import TravelList from "~/screens/Travel/TravelList";
 import TravelDetail from "~/screens/Travel/TravelDetail";
+import TravelupList from "~/screens/Travelup/TravelupList";
+import TravelupDetail from "~/screens/Travelup/TravelupDetail";
 
 LogBox.ignoreAllLogs(true);
 
@@ -85,6 +87,16 @@ export default () => {
         <Stack.Screen
           name="TravelDetail"
           component={TravelDetail}
+          options={() => options}
+        />
+        <Stack.Screen
+          name="TravelupList"
+          component={TravelupList}
+          options={() => options}
+        />
+        <Stack.Screen
+          name="TravelupDetail"
+          component={TravelupDetail}
           options={() => options}
         />
       </Stack.Navigator>
