@@ -1,10 +1,8 @@
-import * as React from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import {
   StatusBar,
   Animated,
   TouchableOpacity,
-  View,
-  Text,
   Image,
   StyleSheet,
   Easing,
@@ -17,6 +15,7 @@ import {
 } from "react-native-gesture-handler";
 import { SharedElement } from "react-navigation-shared-element";
 import { SafeAreaView } from "react-native-safe-area-context";
+import styled from "styled-components/native";
 
 import { SPACING, width } from "~/config/theme";
 import travelup from "~/config/data/travelupData";
@@ -26,12 +25,15 @@ const IMAGE_WIDTH = width * 0.86;
 const IMAGE_HEIGHT = IMAGE_WIDTH * 1.5;
 const VISIBLE_ITEMS = 4;
 
-export default ({ navigation }) => {
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const activeIndex = React.useRef(new Animated.Value(0)).current;
-  const animatedIndex = React.useRef(new Animated.Value(0)).current;
+const View = styled.View``;
+const Text = styled.Text``;
 
-  React.useEffect(() => {
+export default ({ navigation }) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const activeIndex = useRef(new Animated.Value(0)).current;
+  const animatedIndex = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
     Animated.timing(animatedIndex, {
       toValue: activeIndex,
       duration: 300,
@@ -40,7 +42,7 @@ export default ({ navigation }) => {
     }).start();
   });
 
-  const setActiveIndex = React.useCallback((newIndex) => {
+  const setActiveIndex = useCallback((newIndex) => {
     setSelectedIndex(newIndex);
     activeIndex.setValue(newIndex);
   }, []);

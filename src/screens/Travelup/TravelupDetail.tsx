@@ -179,8 +179,8 @@ TravelupDetail.sharedElements = (route, otherRoute, showing) => {
   return [
     {
       id: `item.${item.key}.photo`,
-      // animation: 'fade-in',
-      // resize: 'stretch'
+      animation: "fade-in",
+      resize: "stretch",
     },
     {
       id: `item.${item.key}.name`,
