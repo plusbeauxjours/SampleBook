@@ -1,12 +1,12 @@
 import * as React from "react";
 import { StatusBar } from "react-native";
-import vacationData from "../../config/data/vacationData";
 import { FlatList } from "react-native-gesture-handler";
 import { SharedElement } from "react-navigation-shared-element";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 
-import GoBack from "../../components/GoBack";
+import vacationData from "~/config/data/vacationData";
+import GoBack from "~/components/GoBack";
 
 interface IColor {
   color: string;

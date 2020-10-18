@@ -1,13 +1,14 @@
 import React, { useRef, useEffect } from "react";
 import { Dimensions, Animated } from "react-native";
-import data from "../../config/data/vacationData";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { SharedElement } from "react-navigation-shared-element";
-import { SIZE, SPACING } from "../../config/theme";
 import { AntDesign } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import styled from "styled-components/native";
+
+import { SIZE, SPACING } from "~/config/theme";
+import data from "~/config/data/vacationData";
 
 const AnimatedAntDesign = Animated.createAnimatedComponent(AntDesign);
 
